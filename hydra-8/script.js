@@ -9,7 +9,15 @@ const hydra = new Hydra({
   enableStreamCapture: false,
 });
 
-s1.initVideo("https://va.media.tumblr.com/tumblr_o23qprDvjp1r9bymd_480.mp4")
+//s1.initVideo("https://va.media.tumblr.com/tumblr_o23qprDvjp1r9bymd_480.mp4")
+
+var v = "https://va.media.tumblr.com/tumblr_s4e7r1OrjO1trxx91_720.mp4"
+
+s1.initVideo(v)
 
 
-src(o0).scale(1.05).layer(src(s1).invert().luma(0.6).invert()).out();
+src(s1).invert().thresh(0.95,0.05).out(o1)
+
+src(o0).scale(1.1).layer(src(o1).luma()).out(o0);
+
+render(o0)
