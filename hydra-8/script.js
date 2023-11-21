@@ -18,6 +18,6 @@ s1.initVideo(v)
 
 src(s1).invert().thresh(0.95,0.05).out(o1)
 
-src(o0).scale(1.1).layer(src(o1).luma()).out(o0);
+src(o0).scale(1.1).layer(src(o1).luma()).colorama().out(o0);
 
 render(o0)
