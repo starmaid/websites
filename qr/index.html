@@ -7,14 +7,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="./style.css">
-    
+
     <script data-goatcounter="https://starmaid.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-    
-    
-    
+
     <!-- <script>
         var t = setInterval(function () {
             if (window.goatcounter && window.goatcounter.visit_count) {
@@ -23,15 +18,78 @@
             }
         }, 100)
     </script>-->
-    
+
 </head>
 
 <body>
     <h1>dont just scan random QR codes >:(</h1>
     <br>
-    <div class="fools">number of fools: <div id="stats">loading...</div></div>
-    
-    <script src="./script.js" defer="true"></script>
+    <div class="fools">number of fools: <div id="stats">loading...</div>
+    </div>
+
+    <script>
+        var t = setInterval(function () {
+            if (window.goatcounter && window.goatcounter.visit_count) {
+                clearInterval(t)
+
+                let r = new XMLHttpRequest();
+                r.addEventListener('load', function () {
+                    document.querySelector('#stats').innerText = JSON.parse(this.responseText).count
+                })
+
+                // Should be exact (encoded) path as it appears in the UI. This uses
+                // GoatCounter's count.js
+                let path = window.goatcounter.get_data()['p']
+
+                // Or alternatively, do it manually. Will return HTTP status 404 if the
+                // path is not found).
+                //let path = location.pathname
+
+                r.open('GET', 'https://starmaid.goatcounter.com/counter/' + encodeURIComponent(path) + '.json')
+                r.send()
+            }
+        }, 100)
+    </script>
+
+    <style>
+        h1 {
+            color: greenyellow;
+            font-family: monospace, courier;
+            text-align: center;
+
+        }
+
+        p {
+            color: greenyellow;
+            font-family: monospace, courier;
+            text-align: center;
+
+        }
+
+        .fools {
+            color: greenyellow;
+            font-family: monospace, courier;
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        body {
+            background-color: rgb(15, 15, 15);
+            margin: 6%;
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+
+    <!--<div class="footer">
+        <p style="color: grey;">made by <a href="starmaid.github.io">star<\a></p>
+    </div>-->
 </body>
 
 </html>
