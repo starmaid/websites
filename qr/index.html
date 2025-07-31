@@ -1,16 +1,15 @@
+"<!DOCTYPE html>"
 <html lang="en">
 
 <head>
     <title>hey</title>
+    <link rel="icon" href="./favicon.png">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="./style.css">
-
-    <!-- import the latest version of hydra synth-->
-    <script src="https://unpkg.com/hydra-synth"></script>
 
     <script src="./script.js" defer></script>
     <!-- <script>
@@ -21,10 +20,10 @@
             }
         }, 100)
     </script>-->
-
-
     <script data-goatcounter="https://starmaid.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
 
+<body>
     <h1>dont just scan random QR codes >:(</h1>
 
     <div class="fools">Number of fools: <div id="stats"></div></div>
@@ -46,10 +45,6 @@
         r.open('GET', 'https://starmaid.goatcounter.com/counter/' + encodeURIComponent(path) + '.json')
         r.send()
     </script>
-
-</head>
-
-<body>
 </body>
 
 </html>
